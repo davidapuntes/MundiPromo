@@ -1,0 +1,28 @@
+{
+  "ofertas": [
+    {
+      "titulo": "Segunda tapa gratis",
+      "descripcion_corta": "My short Description (tapa)",
+      "descripcion_larga": "LD: (tapa) Ex-assassin John Wick takes down the Russian Mafia in New York",
+      "email": "davidapuntes@hotmail.com",
+      "empresa": "My company",
+      "telefono": 699201466,
+	  "image1":"none",
+	  "image2":"none",
+	  "image3":"none",
+      "direccion": "C/Murillo 13 Alcázar de San Juan"
+    },
+    {
+      "titulo": "Bicicleta al 50 %",
+      "descripcion_corta": " My short Description (bici)",
+      "descripcion_larga": "LD (bici): Ex-assassin John Wick takes down the Russian Mafia in New York",
+      "email": "davidapuntes@hotmail.com",
+      "empresa": "My company",
+      "telefono": 699201466,
+	  "image1":"none",
+	  "image2":"none",
+	  "image3":"none",
+      "direccion": "C/Murillo 13 Alcázar de San Juan"
+    }
+  ]
+}

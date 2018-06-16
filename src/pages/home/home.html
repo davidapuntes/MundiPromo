@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Todas nuestras promociones</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <button ion-button block (click)="uploadPromotion()" color="secondary">Subir Promoción</button>
+  <ion-card class="fw" >
+    <!-- Wrapping the slides moves it to the top of the page -->
+    <ion-slides autoplay="3000" #productSlides>
+      <ion-slide *ngFor="let img of imgs">
+        <img src="assets/imgs/{{img}}.jpg" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <div class="mainContent">
+    <ion-searchbar [(ngModel)]="val" placeholder="Buscar" (ionInput)="getItems($event)" debounce="500"></ion-searchbar>
+    <ion-card *ngFor="let producto of moreProductos" (click)="openProductPage(producto)" style="background-color: #F2F2F2;margin-bottom: 20px !important;">
+      <ion-card-header [innerHTML]="producto.title" style="text-align: center;font-weight: bold;font-size: 18px;" text-wrap></ion-card-header>
+      <img images-filter [src]="producto.featured_src" />
+      <ion-card-content [innerHTML]="producto.short_description" style="font-size: 16px !important;font-weight: bold !important"></ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-only (click)="shareProv.twitterShare(producto.title,producto.featured_src,producto.permalink)" color="twitter" clear>
+              <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-only (click)="shareProv.whatsappShare(producto.title,producto.featured_src,producto.permalink)" color="whatsapp" clear>
+              <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-only (click)="shareProv.facebookShare(producto.title,producto.featured_src,producto.permalink)" color="facebook" clear>
+              <ion-icon class="share-icon" name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-only (click)="shareProv.shareViaInstagram(producto.title,producto.featured_src)" color="instagram"
+              clear>
+              <ion-icon class="share-icon" name="logo-instagram"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card>
+  </div>
+
+
+  <!--En el evento va info de por donde se quedó el usuario en el scroll, etc....Información técnica
+  de la situación del usuario -->
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content>
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

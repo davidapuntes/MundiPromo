@@ -1,0 +1,110 @@
+ion-item {
+    @include semi-gb($card-surface-bg);
+}
+
+formulario {
+
+    #myInput {
+        width: calc(100% - 10px);
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        
+    }
+
+
+    #imagesRow{
+            flex-wrap: nowrap !important;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            align-content: center;          
+               
+        img {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        
+            ion-row:after {
+                content: '';
+                display: inline-block;
+                width: 100%;
+            }
+        }  
+
+  
+   }
+
+    .imagenes{
+        display:flex;
+        flex-shrink: 1;
+    }
+
+    .imagen{
+        display:inline-block;
+    }
+
+}
+
+ion-item {
+    @include semi-gb($card-surface-bg);
+}
+
+formulario-component {
+
+    #myInput {
+        width: calc(100% - 10px);
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        
+    }
+
+    .altura{
+        height: 3%;
+    }
+
+    .iconos{
+        position: absolute !important;
+        top: 0.6rem !important;
+        right: 0.6rem !important;
+        color: #9b1616 !important;
+        font-size: 25px;
+    
+    }
+
+
+    #imagesRow{
+
+        display: flex;
+        flex-direction: column !important;
+        // flex-wrap: nowrap !important;
+        align-items: flex-start !important;
+        // justify-content: center !important;
+        // align-content: center !important;
+
+        .imagenes {
+            position: relative !important;
+            width: 11rem !important;
+            margin: 1rem !important;
+        
+    
+                        
+                
+            .imagen {
+                // disprgb(14, 13, 13)line-block;
+                // flex: 1;
+                width: 11rem !important;
+                // height: 100px !important;
+            }
+        }
+    }
+
+    ion-row:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+
+  
+}

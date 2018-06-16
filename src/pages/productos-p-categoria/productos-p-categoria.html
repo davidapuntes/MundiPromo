@@ -1,0 +1,58 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button color="primary" icon-left menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title [innerHTML]="category.slug | titlecase"></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <button ion-button block (click)="uploadPromotion()" color="secondary">Subir Promoción</button>
+
+
+  <div class="mainContent">
+  <ion-card *ngFor="let product of productos" (click)="openProductPage(product)" style="background-color: #F2F2F2;margin-bottom: 20px important!;">
+    <ion-card-header [innerHTML]="product.title" style="text-align: center;font-weight: bold;font-size: 18px;" text-wrap></ion-card-header>
+    <img images-filter [src]="product.featured_src" />   
+    <ion-card-content [innerHTML] ="product.short_description" style="font-size: 16px !important;font-weight: bold !important"></ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only (click)="shareProv.twitterShare(product.title,product.featured_src,product.permalink)" color="twitter" clear>
+            <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="shareProv.whatsappShare(product.title,product.featured_src,product.permalink)" color="whatsapp" clear>
+            <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="shareProv.facebookShare(product.title,product.featured_src,product.permalink)" color="facebook" clear>
+            <ion-icon class="share-icon" name="logo-facebook"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only (click)="shareProv.shareViaInstagram(product.title,product.featured_src)" color="instagramn" clear>
+            <ion-icon class="share-icon" name="logo-instagram"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+  </div>
+
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content>
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

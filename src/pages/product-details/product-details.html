@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title [innerHTML]='product.title'></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button block (click)="uploadPromotion()" color="secondary">Subir Promoción</button>
+  <ion-slides autoplay="3000">
+    <!--En el slider, tendremos un slide por cada imagen que haya en el array de imágenes del producto -->
+    <ion-slide *ngFor="let image of product.images">
+      <img [src]="image.src" /> </ion-slide>
+  </ion-slides>
+
+
+  <h1 [innerHTML]="product.title" text-center> </h1>
+  <!--
+      <ion-chip *ngFor="let cat of product.categories" style="margin-left: 5px;">
+        <ion-label color="danger" [innerHTML]="cat"></ion-label>
+      </ion-chip>-->
+  <p [innerHTML]="product.description" text-center text-wrap></p>
+  <button ion-button block (click)="obtenerCodigo()"> Obtener Código de la Promoción </button>
+
+  <div *ngIf="atributos.length > 0" #map id="map"></div>
+
+
+
+
+</ion-content>

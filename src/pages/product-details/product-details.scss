@@ -1,0 +1,46 @@
+ion-content{
+    background-image: url('../assets/imgs/background.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size:cover;
+    height: 100vh;
+
+    h1, p {
+        line-height: 1.1;
+    }
+    p[text-center] {
+        font-size: x-small;
+
+        h2.av-special-heading-tag {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: large !important;
+        }
+    }
+
+    ion-slides {
+        ion-slide {
+           @include semi-gb($card-surface-bg);
+        }
+    }
+}
+ion-app._gmaps_cdv_ .nav-decor{
+    background-color: transparent !important;
+  }
+   
+  page-product-details {
+   
+      #map {
+          width:100%;
+          min-height: 60%;
+      }
+
+      ion-slide.swiper-slide {
+        align-items: flex-start;
+    }
+
+    ion-slides{
+        height:200px;
+    }
+   
+  }

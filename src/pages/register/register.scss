@@ -1,0 +1,24 @@
+page-register {
+    ion-content{
+        background-image: url('../assets/imgs/background.jpg');
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-size:cover;
+    }
+    .logo{
+        margin:0 auto;
+        display:block;
+        width:75%;
+        max-height: 200px;
+    }
+
+    .fila{
+        text-align: center;
+        
+    }
+
+    .mdc-layout-grid__cell {
+        display: flex;
+        justify-content: space-around;
+    }
+}

@@ -1,0 +1,53 @@
+<form [formGroup]="Emailform" (ngSubmit)="sendInfo()">
+
+  <ion-item margin-bottom>
+    <span ion-button color="primary" text-center block (click)="retrieveAttachment()">Adjuntar imagen</span>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input formControlName="email" type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Empresa / Nombre comercial</ion-label>
+    <ion-input formControlName="empresa" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Teléfono de contacto</ion-label>
+    <ion-input formControlName="telefono" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Dirección completa</ion-label>
+    <ion-input formControlName="direccion" type="text"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label floating>Breve descripción de su oferta</ion-label>
+    <ion-input formControlName="descripcion_corta" type="text"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label floating>Describa en detalle su oferta</ion-label>
+    <ion-textarea elastic id="myInput" maxLength="2000" formControlName="descripcion_larga"></ion-textarea>
+  </ion-item>
+  <ion-row>
+    <ion-col text-center>
+      <button [disabled]="!Emailform.valid" ion-button block color="secondary">
+        Enviar</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col width-33 *ngFor="let image of attachmentArray;let i=index" class="altura">
+      <img *ngIf="image && image != null" [src]="image" class="altura">
+      <ion-icon name="close" class="iconos" *ngIf="image && image != null" (click)="eliminaImagen(i)"></ion-icon>
+    </ion-col>
+
+  </ion-row>
+
+</form>

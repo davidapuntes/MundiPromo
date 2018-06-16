@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-card-content>
+    <ion-item>
+      <ion-label floating>Email address</ion-label>
+      <ion-input type="email" [(ngModel)]="account.email"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="account.password"> </ion-input>
+    </ion-item>
+  </ion-card-content>
+  <hr>
+  <ion-row class="registerForm">
+    <div class="mdc-layout-grid">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--align-center">
+          <button ion-button full (click)="register()">Register</button>
+        </div>
+      </div>
+    </div>
+  </ion-row>
+</ion-card>
