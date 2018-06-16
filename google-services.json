@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:302191716332:android:7a217675e8e7065b",
+        "mobilesdk_app_id": "1:302191716332:android:756ede588ad082b4",
         "android_client_info": {
-          "package_name": "com.ilovealcazar.com"
+          "package_name": "com.mundipromo.com"
         }
       },
       "oauth_client": [
         {
-          "client_id": "302191716332-a1sfemqn2mi47hj9lprqs9dk3ei580t5.apps.googleusercontent.com",
+          "client_id": "302191716332-lmnnjv8gpp5q2h9jbl04to11brfkl06u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.ilovealcazar.com",
+            "package_name": "com.mundipromo.com",
             "certificate_hash": "e11002229465dc82631dc6c9ca85ff2a48b0856f"
           }
         },
@@ -48,10 +48,10 @@
               "client_type": 3
             },
             {
-              "client_id": "302191716332-v9j1gjlrjl0mq88p5rkrb9nsah4ouqr3.apps.googleusercontent.com",
+              "client_id": "302191716332-2oe6061mhh4ncfda1fg83mk2us6q48si.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.ilovealcazar.com"
+                "bundle_id": "com.mundipromo.com"
               }
             }
           ]

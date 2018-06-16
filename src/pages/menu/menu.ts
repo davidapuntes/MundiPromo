@@ -6,12 +6,7 @@ import { FormularioPage } from '../formulario/formulario';
 import { TitleCasePipe } from '@angular/common';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-/**
- * Generated class for the MenuPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-menu',
@@ -35,10 +30,6 @@ export class MenuPage {
     this.homePage = 'HomePage';
 
     this.categories = [];
-
-    //Esto lo hago "a pelo, según el número de categorías"
-    //Va en orden alfabético
-    //Comer,comprar,ocio,pruebas,servicios,todo
     this.iconos = [];
 
 
@@ -70,7 +61,7 @@ export class MenuPage {
   }
 
 
-
+//Abre página filtrando por categoría..En la categoría todo, obviamente no hace falta filtro....
   openCatPage(category) {
     if (category.slug == "todo" || category.slug == "Todo") {
       this.childController.setRoot('HomePage');
@@ -82,15 +73,6 @@ export class MenuPage {
 
   }
 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MenuPage');
-  }
-  
-
-  ionViewWillLoad(){
- 
-  }
  
 
 

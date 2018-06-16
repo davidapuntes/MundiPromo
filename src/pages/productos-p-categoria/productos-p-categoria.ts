@@ -4,12 +4,7 @@ import * as WC from 'woocommerce-api'; //Importamos librería completa
 import { ShareProvider } from '../../providers/share/share';
 
 
-/**
- * Generated class for the ProductosPCategoriaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -39,6 +34,7 @@ export class ProductosPCategoriaPage {
     });
 
     //En woocommerce puede haber 2 categorías con el mismo nombre, pero NO con el mismo slug
+    //Filtramos por tanto porductos por categoría
     this.Woocommerce.getAsync('products?filter[category]=' + this.category.slug).then((data) => {
       console.log(JSON.parse(data.body));
       this.productos = JSON.parse(data.body).products;
@@ -60,6 +56,9 @@ export class ProductosPCategoriaPage {
   uploadPromotion(){
     this.navCtrl.push('FormularioPage');
   }
+
+  //Al llegar al ionInfinite, simplemente seguimos filtrando por categoría, pero aumentamos el page +1
+  //Recordar que aquí cada page representan a los elementos que va cogiendo Woocomerce (DE 10 EN 10 ) en cada llamada
 
   loadMoreProducts(event) {
     this.page++;

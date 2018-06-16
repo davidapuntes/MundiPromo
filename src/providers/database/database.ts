@@ -17,6 +17,8 @@ export class DatabaseProvider {
     
   }
 
+
+  //Envía información a la database de Firebase
   addToDatabase(offerObj): Promise<any> {
     return new Promise((resolve) => {
       let addRef = firebase.database().ref('ofertas');
@@ -25,6 +27,7 @@ export class DatabaseProvider {
     });
   }
 
+  //Envía imágen al storage de Firebase
 uploadImage(nombreNegocio,image){
       let fecha=new Date();
       let Ffinal=this.datepipe.transform(fecha, 'yyyy-MM-dd HH:mm');     

@@ -13,7 +13,7 @@ export class ImageProvider {
         private _CAMERA: Camera) {
     }
 
-
+    //Seleccionamos imagen desde el storage de nuestro dispositivo
     selectImage(): Promise<any> {
         return new Promise(resolve => {
             let cameraOptions: CameraOptions = {

@@ -32,6 +32,7 @@ export class ProductDetailsPage {
     private googleMaps: GoogleMaps,public modalCtrl: ModalController
   ) {
     this.platform.ready().then(() => {
+      //Cogemos el objeto producto desde la página anterior
       this.product = this.navParams.get('product');
       console.log(this.product);
       this.atributos = [];
@@ -42,14 +43,9 @@ export class ProductDetailsPage {
         consumerSecret: 'cs_c111d10d2af21c1394df780d4c8b79e4e8607996'
       });
 
-      /*Vamos a coger las reviews u opiniones que tenga cada producto
-      this.Woocommerce.getAsync('products/' + this.product.id + '/reviews').then((data) => {
-        this.reviews = (JSON.parse(data.body).product_reviews);
-        console.log(this.reviews);
-      }).catch((error) => console.log("Error cogiendo reviews " + error.message));
-  */
 
-      //Vamos a coger la dirección
+
+      //Vamos a coger la dirección, para eso cogemos los atributos longitud y latitud
       this.atributos = this.product.attributes;
 
       if (this.atributos.length > 0) {
@@ -78,6 +74,8 @@ export class ProductDetailsPage {
   }
 
   loadMap() {
+
+    //Para pintar el mapa
 
     let mapOptions: GoogleMapOptions = {
       camera: {
@@ -115,6 +113,8 @@ export class ProductDetailsPage {
   }
 
   obtenerCodigo(){
+    //Abrimos página con cupon en un modal (Se diferencia de una página estándar en que no tiene la opción
+  //por defecto de volver atrás)
     console.log("click!");
      let modal = this.modalCtrl.create('CuponPage', { titulo: this.product.title,establecimiento:this.product.short_description  });
      modal.present();

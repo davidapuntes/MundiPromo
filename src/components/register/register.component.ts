@@ -4,12 +4,7 @@ import { ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { Account } from '../../models/account/account.interface';
 
-/**
- * Generated class for the RegisterFormComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
+
 @Component({
   selector: 'register-form',
   templateUrl: 'register.component.html'

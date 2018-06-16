@@ -7,13 +7,13 @@
       <!-- <button ion-button block (click)="uploadPromotion()" color="secondary">Subir Promoción</button>-->
       <div class="mdc-layout-grid__cell">
         <ion-item class="mdc-text-field">
-          <ion-label for="email" class="mdc-floating-label" floating>Email address</ion-label>
+          <ion-label for="email" class="mdc-floating-label" floating>Email</ion-label>
           <ion-input id="email" class="mdc-text-field__input" type="email" [(ngModel)]="account.email"> </ion-input>
         </ion-item>
       </div>
       <div class="mdc-layout-grid__cell">
         <ion-item class="mdc-text-field">
-          <ion-label for="password" class="mdc-floating-label" floating>Password</ion-label>
+          <ion-label for="password" class="mdc-floating-label" floating>Contraseña</ion-label>
           <ion-input id="password" class="mdc-text-field__input" type="password" [(ngModel)]="account.password"> </ion-input>
         </ion-item>
       </div>
@@ -49,7 +49,7 @@
         mdc-layout-grid__cell--span-4-tablet
         mdc-layout-grid__cell--span-2-phone">
         <!-- <ion-col col-4> -->
-        <button ion-button full (click)="loginWithFacebook()">
+        <button ion-button full (click)="loginWithFacebook()" style="background-color: #1DA1F2 !important">
           <ion-icon name="logo-facebook"></ion-icon>
           &nbsp; Facebook
         </button>
@@ -61,7 +61,7 @@
         mdc-layout-grid__cell--span-4-tablet
         mdc-layout-grid__cell--span-2-phone">
         <!-- <ion-col col-4> -->
-        <button ion-button full (click)="loginWithGoogle()">
+        <button ion-button full (click)="loginWithGoogle()" style="background-color: #dd4b39 !important">
           <ion-icon name="logo-googleplus"></ion-icon>
           &nbsp; Google+
         </button>

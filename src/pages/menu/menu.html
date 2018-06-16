@@ -7,14 +7,13 @@
 
   <ion-content>
     <ion-card class="menu_ion_card">
-      <img src="../assets/imgs/logo.png" />
-      <!--<div class="card-title">I Love Alcazar</div>
-      <div class="card-subtitle">Las mejores promociones de tu ciudad</div> -->
+      <img src="assets/imgs/logo.png" />
+
     </ion-card>
     <ion-list>
       <ion-item *ngFor="let category of categories;let i=index" (click)="openCatPage(category)" menuClose>
-        <ion-icon item-left name="{{iconos[i]}}"></ion-icon>
-        <h2>{{category.name | titlecase }}</h2>
+        <ion-icon item-left name="{{iconos[i]}}" style="color:white !important;"></ion-icon>
+        <h2 style="color:white !important;">{{category.name | titlecase }}</h2>
       </ion-item>
     </ion-list>
   </ion-content>

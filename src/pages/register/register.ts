@@ -23,6 +23,7 @@ export class RegisterPage {
   }
 
   register(event:LoginResponse){
+    //Si el evento recibido no tiene un error, obviamente es que es un registro correcto
     if(!event.error){
       this.toast.create({
         /* Ver uso de template literal strings  */
@@ -35,6 +36,7 @@ export class RegisterPage {
   }
 
   else{
+    //En caso de error, filtramos el mensaje para enseñar
     let mensajeError=event.error.code;
     console.log(event.error.code);
    

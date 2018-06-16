@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ilovealcazar.com" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>I Love Alcazar</name>
-    <description>Tu app de promociones en Alcázar de San Juan</description>
-    <author email="comercial@ilovealcazar.com" href="http://www.ilovealcazar.com/">I Love Alcazar</author>
+<widget id="com.mundipromo.com" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MundiPromo</name>
+    <description>Tu app de promociones locales y comerciales</description>
+    <author email="comercial@mundipromo.com" href="http://www.mundipromo.com/">MundiPromo</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the CuponPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -17,6 +12,9 @@ export class CuponPage {
 
   titulo:string;
   establecimiento:string;
+
+  //Esta página será abierta a través de un modal. Mostrará la información del
+  //título de la promoción y del establecimiento que la ofrece
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.titulo=this.navParams.get('titulo');

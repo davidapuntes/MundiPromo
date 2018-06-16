@@ -12,6 +12,7 @@ import { Network } from '@ionic-native/network';
 })
 
 export class MyApp {
+
   @ViewChild(Nav) nav: Nav;
   rootPage: any;
 
@@ -19,6 +20,8 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthProvider,
     private network:Network,private alertCtrl:AlertController) {
+
+      //Inicializa la app
     this.initializeApp();
 
 
@@ -26,6 +29,13 @@ export class MyApp {
   }
   initializeApp() {
     this.platform.ready().then(() => {
+      //Si hay red, constantemente estaremos comprobando el estada de la autenticación.
+      //En cuanto se vea un cambio en la autenticación, se comprobará si hay un usuario correctamente
+      //acreditado (nos mandára a la página del Menú)..y sino lo hay, deberá loggearse
+
+      //El método onAuthStateChanged() ya devuelve el unsuscribe(), es decir, en cuanto vea el estado,
+      // "deja de comprobar"
+      
       if(this.network.type != 'none'){
       const unsubscribe = firebase.auth().onAuthStateChanged(user => {
         if (!user) {

@@ -36,10 +36,14 @@ export class HomePage {
     this.preloader.hidePreloader();
 
     //Imágenes para slider principal
-    this.moreProductos = [];
+   
     this.imgs = [1, 2, 3];
-    this.page = 1;
+   
 
+
+
+    this.moreProductos = [];
+    this.page = 1;
     //WC takes a Json object as a parameter
     this.Woocommerce = WC({
       url: 'http://ilovealcazar.es',
@@ -85,9 +89,9 @@ export class HomePage {
   }
 
 
-
+//Este método recibirá un evento al llegar al final de la página (ionInfinite)
   loadMoreProducts(event) {
-    this.page++;
+    this.page++; //Cogemos los siguientes 10 productos (siguiente página por así decirlo de Woocommerce)
     let arrayAux: any[] = [];
 
     this.Woocommerce.getAsync('products?page=' + this.page).then((data) => {
@@ -109,7 +113,7 @@ export class HomePage {
       // console.log("Productos página " + this.page + " cogidos...  " + this.moreProductos.length);
       //Tenemos que indicar a Angular que ya debemos terminar la tarea asociada al evento recibido
 
-
+      //Para el filtro del search bar, si está vacío, carga todos los productos
       if (!(this.val) || (this.val.trim() == '')) {
         console.log("pasa por filtro complicado");
         for (let o of arrayAux) {
@@ -119,6 +123,7 @@ export class HomePage {
       }
 
       else {
+        //Si no, filtra array
         let auxMore = arrayAux.filter((item) => {
           return (item.title.toLowerCase().indexOf(this.val.toLowerCase()) > -1);
         });
@@ -133,16 +138,17 @@ export class HomePage {
 
   }
 
-
+  //Abre detalles de la promoción
   openProductPage(product) {
     this.navCtrl.push('ProductDetailsPage', { 'product': product });
   }
 
-
+  //Sube promoción
   uploadPromotion() {
     this.navCtrl.push('FormularioPage');
   }
 
+  //Filtro de searchBar
   getItems(ev: any) {
     this.preloader.displayPreloader();
     // Reset items back to all of the items
@@ -154,13 +160,6 @@ export class HomePage {
 
     // if the value is an empty string don't filter the items
     if (this.val && this.val.trim() != '') {
-      /*let productosFiltrados:any[]=[];
-      for(let prod of this.moreProductos){
-        if(prod.title.includes(this.val) || prod.short_description.includes(this.val)){
-          productosFiltrados.push(prod);
-        }
-      }
-      this.moreProductos = productosFiltrados.slice();*/
       this.moreProductos = this.filterItems();
       this.preloader.hidePreloader();
     }
@@ -173,7 +172,7 @@ export class HomePage {
     }
   }
 
-
+  //Filtra array por letras (search Bar)
   filterItems() {
     return this.moreProductos.filter((item) => {
       return item.title.toLowerCase().indexOf(this.val.toLowerCase()) > -1 || item.short_description.toLowerCase().indexOf(this.val.toLowerCase()) > -1

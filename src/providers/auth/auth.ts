@@ -23,12 +23,15 @@ export class AuthProvider {
     private loading: PreloaderProvider
   ) {
 
+    //Al iniciar el servicio, simplemente recoge el estado del usuario e indica el lenguaje en que debe
+    //mostrar sus advertencias
     firebase.auth().useDeviceLanguage();
     this.user = this.auth.authState;
 
 
   }
 
+  //Logeo con Facebook + autenticación en Firebase
 
   facebookLogin(): Promise<any> {
     return this.facebook.login(['email'])
@@ -57,7 +60,7 @@ export class AuthProvider {
   }
 
 
-  //Función de logeo
+  //Función de logeo + autenticación con Firebase
   async login(account: Account) {
     try {
       return <LoginResponse>{
@@ -78,7 +81,7 @@ export class AuthProvider {
 
   //Devolverá un objeto LoginResponse, relleno con su respectivo subobjeto según el resultado
 
-  //Función de registro
+  //Función de registro con google + autenticación en Firebase
   async createUserWithEmailAndPassword(account: Account) {
     try {
       return <LoginResponse>{
@@ -96,6 +99,8 @@ export class AuthProvider {
     this.auth.auth.signOut();
   }
 
+
+  //Logeo con Google + autenticación en Firebase
   loginWithGoogle(): Promise<any> {
 
     return new Promise((resolve, reject) => {

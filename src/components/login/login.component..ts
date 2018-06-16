@@ -35,7 +35,9 @@ export class LoginComponent {
   async login() {
     try {
       this.loading.displayPreloader();
+      //Resolvemos el login
       const resultado = await this.auth.login(this.account);
+      //Y enviamos el resultado a la página login, para que sea la encargada de decidir
       this.loginStatus.emit(resultado);
 
     }
@@ -51,6 +53,8 @@ export class LoginComponent {
 
     this.auth.facebookLogin().then((response) => {
 
+      //Con una "NO RESPUESTA " o respuesta undefined, significa que el login con facebook ha sido
+      //satisfactorio, por tanto dirigimos al menú
       if (!response) {
         this.loading.displayPreloader();
         this.navCtrl.setRoot('MenuPage');
@@ -58,11 +62,15 @@ export class LoginComponent {
 
       else {
         if (response.errorCode) {
+          
+        //Por el contrario, todo objeto JSON respuesta, con un errorCode, significa obviamente un error
+        //NO DEBE PASAR AL MENÚ
           this.loading.hidePreloader();
           console.log("Error autenticando con facebook " + response.error.json());
         }
 
         else {
+          //Por si acaso hay algún otro tipo de respuesta, SIN ERROR (dirigimos al menú)
           this.loading.displayPreloader();
           this.navCtrl.setRoot('MenuPage');
         }
@@ -71,6 +79,12 @@ export class LoginComponent {
   }
 
   loginWithGoogle() {
+
+    //Vemos como el funcionamiento del login con Facebook y con Google es muy similar...
+    //Simplemente aquí el control de las respuestas se ha llevado de forma algo diferente
+    //pero igualmente efectiva
+
+
     this.auth.loginWithGoogle().then((response) => {
 
       if(response){
@@ -96,6 +110,7 @@ export class LoginComponent {
   }
 
   resetPassword(email: string): Promise<void> {
+    //Para pedir un reseteo de contraseña, debemos rellenar el campo e-mail
     if (!email || email == "") {
       this.toast.create({
         /* Ver uso de template literal strings  */
@@ -105,6 +120,7 @@ export class LoginComponent {
     }
 
     else {
+      //El reseto de contraseña es un proceso que maneja enteramente firebase
       return firebase.auth().sendPasswordResetEmail(email).then
         (
         user => {

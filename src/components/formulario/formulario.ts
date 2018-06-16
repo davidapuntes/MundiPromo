@@ -35,8 +35,10 @@ export class FormularioComponent {
     private _PL: PreloaderProvider,
     private alertCtrl: AlertController) {
 
+      //Array que almacenará las imágenes adjuntas
     this.attachmentArray = [this.attachment1, this.attachment2, this.attachment3];
 
+    //Validamos el formulario una vez los campos requeridos estén debidamente cumplimentados
     this.Emailform = this.formBuilder.group({
       "email": ["", Validators.required],
       "empresa": ["", Validators.required],
@@ -62,7 +64,7 @@ export class FormularioComponent {
 
   sendImages() {
     console.log("Enviando imágenes!!!!!!! ");
-    //Subimos las imágenes al storage
+    //Recorremos array de imágenes, y cada una que no esté vacía, la subimos al storage de Firebase
     let contador = 0;
     for (var i = 0; i < this.attachmentArray.length; i++) {
       contador++;
@@ -74,6 +76,7 @@ export class FormularioComponent {
   }
 
   createObject() {
+    //La información completa del formulario, la almacenamos en un objeto para ser enviada a la bbdd de firebase
     this.objetoInfo = {
       descripcion_corta: this.Emailform.get('descripcion_corta').value,
       descripcion_larga: this.Emailform.get('descripcion_larga').value,

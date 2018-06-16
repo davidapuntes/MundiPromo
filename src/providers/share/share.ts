@@ -7,8 +7,14 @@ import { Diagnostic } from '@ionic-native/diagnostic';
 @Injectable()
 export class ShareProvider {
 
+  //Servicio para compartir las promociones por redes sociales
+
   private isAndroid: boolean = false;
   private isIos: boolean = false;
+
+  //En caso de que se intente comnpartir una promoción, se ha de tener la aplicación en cuestión (por ejemplo
+  //Facebook... En caso de no tenerla, mostraremos un pop-up que nos redirigirá a la tienda en cuestión, dependiendo
+  // de nuestra plataforma, para descargarla
 
   private linkWhatsappAndroid = 'https://play.google.com/store/apps/details?id=com.whatsapp';
   private linkWhatsappIOS = 'https://itunes.apple.com/es/app/whatsapp-messenger/id310633997?mt=8';
@@ -27,6 +33,8 @@ export class ShareProvider {
 
   constructor(private socialSharing: SocialSharing, private alertCtrl: AlertController, private platform: Platform) {
     console.log('Hello ShareProvider Provider');
+
+    //Comprobamos en qué plataforma estamos ejecuntando la aplicación
     this.platform.ready().then(() => {
       if (this.platform.is('android')) {
         this.isAndroid = true;
@@ -46,10 +54,11 @@ export class ShareProvider {
   }
 
 
-
+  //Compartimos dependiendo de la red social a usar, a través del plugin social Sharing
+  
   twitterShare(msg, image,link) {
     this.socialSharing.canShareVia('twitter', null, null, null, null).then((success) => {
-      this.socialSharing.shareViaTwitter(msg + "\n Enviado desde ILoveAlcazar App!", image, link);
+      this.socialSharing.shareViaTwitter(msg + "\n Enviado desde MundiPromo App!", image, link);
     }, (error) => {
       this.presentAlert('Información', 'Debe tener la app de Twitter instalada en su terminal', 'twitter');
     });

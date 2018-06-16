@@ -6,6 +6,8 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class EmailProvider {
 
+  //--------------------------- FUNCIONALIDAD ANTICUADA, NO ES USADA PERO NO LA BORRAMOS -------------------
+
   constructor(private _EMAIL: EmailComposer,private AlertService:AlertController) { }
 
   sendEmail(to: any,
